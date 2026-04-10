@@ -1,0 +1,31 @@
+package edu.teamrocket.bicipalma.domain.estacion;
+import edu.teamrocket.bicipalma.domain.vehiculo.Movil;
+
+class Anclaje {
+
+    private Movil bici;
+    private boolean ocupado = true;
+
+    Anclaje() {}
+    
+    boolean isOcupado() {
+        return this.ocupado;
+    }
+
+    Movil getBici() {
+        return this.bici;
+    }
+
+    void anclarBici(Movil bici) {
+        this.bici = bici;
+        this.ocupado = true;
+    }
+
+    void liberarBici() {
+        this.ocupado = false;
+    }
+
+    public String toString() {
+        return "Id: %I; Ocupado: %B".formatted(this.bici, this.ocupado);
+    }
+}   
