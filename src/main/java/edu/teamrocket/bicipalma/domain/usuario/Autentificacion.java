@@ -1,4 +1,4 @@
-package edu.teamrocket.bicipalma.usuario; 
+package edu.teamrocket.bicipalma.domain.usuario; 
 
 interface Autentificacion {
     public boolean isActivada();

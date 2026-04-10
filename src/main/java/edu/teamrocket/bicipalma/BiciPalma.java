@@ -1,5 +1,9 @@
 package edu.teamrocket.bicipalma;
 
+import edu.teamrocket.bicipalma.domain.vehiculo.*;
+import edu.teamrocket.bicipalma.domain.usuario.*;
+import edu.teamrocket.bicipalma.domain.estacion.*;
+
 public class BiciPalma {
 
 	public static void main(String[] args) {
