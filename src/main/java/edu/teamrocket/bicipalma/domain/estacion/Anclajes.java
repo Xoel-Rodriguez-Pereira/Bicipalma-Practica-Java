@@ -44,8 +44,8 @@ public class Anclajes {
 
     int seleccionarAnclaje() {
         int posicion = 0;
-        for (int i = 0; i < numAnclajes(); i++) {
-            posicion = this.anclajes[i].isOcupado() ? i : posicion;
+        while (!anclajes[posicion].isOcupado()) {
+            posicion++;
         }
         return posicion;
     }
