@@ -1,6 +1,6 @@
 package edu.teamrocket.bicipalma.domain.usuario;
 
-class TarjetaUsuario {
+public class TarjetaUsuario {
     
     private final String id;
     private boolean activada = false;

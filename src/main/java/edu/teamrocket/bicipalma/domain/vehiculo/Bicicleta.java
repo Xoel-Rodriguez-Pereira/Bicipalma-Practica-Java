@@ -1,6 +1,6 @@
 package edu.teamrocket.bicipalma.domain.vehiculo;
 
-class Bicicleta {
+public class Bicicleta {
 
     final int id;
 
