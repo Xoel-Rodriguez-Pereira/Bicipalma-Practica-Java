@@ -1,6 +1,6 @@
 package edu.teamrocket.bicipalma.domain.vehiculo;
 
-public class Bicicleta {
+public class Bicicleta implements Movil {
 
     final int id;
 
@@ -9,10 +9,10 @@ public class Bicicleta {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String toString() {
-        return "Id: %I".formatted(this.id);
+        return "%d".formatted(this.id);
     }
 }

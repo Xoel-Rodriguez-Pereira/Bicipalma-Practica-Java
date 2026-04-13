@@ -34,7 +34,7 @@ public class Anclajes {
         return this.anclajes[posicion].isOcupado();
     }
 
-    void ocuparAnclaje(int posicion) {
+    void liberarAnclaje(int posicion) {
         this.anclajes[posicion].liberarBici();
     }
 

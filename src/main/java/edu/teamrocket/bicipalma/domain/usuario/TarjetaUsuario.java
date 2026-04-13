@@ -1,15 +1,16 @@
 package edu.teamrocket.bicipalma.domain.usuario;
 
-public class TarjetaUsuario {
+public class TarjetaUsuario implements Autenticacion {
     
     private final String id;
     private boolean activada = false;
 
-    TarjetaUsuario(String id, boolean activada) {
+    public TarjetaUsuario(String id, boolean activada) {
         this.id = id;
         this.activada = activada;
     }
     
+    @Override
     public boolean isActivada() {
         return this.activada;
     }
@@ -20,6 +21,6 @@ public class TarjetaUsuario {
 
     @Override
     public String toString() {
-        return "Tarjeta: %I -- %B".formatted(this.id, this.activada);
+        return "Tarjeta: %s -- %B".formatted(this.id, this.activada);
     }
 }

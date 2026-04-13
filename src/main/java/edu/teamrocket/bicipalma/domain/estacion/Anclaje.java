@@ -4,7 +4,7 @@ import edu.teamrocket.bicipalma.domain.vehiculo.Movil;
 class Anclaje {
 
     private Movil bici;
-    private boolean ocupado = true;
+    private boolean ocupado = false;
 
     Anclaje() {}
     
@@ -26,6 +26,6 @@ class Anclaje {
     }
 
     public String toString() {
-        return "Id: %I; Ocupado: %B".formatted(this.bici, this.ocupado);
+        return "Id: %s; Ocupado: %b".formatted(this.bici == null ? "null" : this.bici.getId(), this.ocupado);
     }
 }   

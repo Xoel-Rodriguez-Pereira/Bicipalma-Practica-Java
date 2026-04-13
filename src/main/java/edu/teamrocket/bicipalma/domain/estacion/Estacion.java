@@ -26,7 +26,7 @@ public class Estacion {
 
     @Override
     public String toString() {
-        return "ID estacion: %S; Direccion: %S; Anclajes %I".formatted(this.id, this.direccion, this.anclajes.numAnclajes());
+        return "ID estacion: %S; Direccion: %S; Anclajes %d".formatted(this.id, this.direccion, this.anclajes.numAnclajes());
     }
 
     private Anclaje[] anclajes() {
@@ -44,7 +44,7 @@ public class Estacion {
     public int anclajesLibres() {
         int anclajesLibres = 0;
         for (Anclaje anclaje : this.anclajes.anclajes()) {
-            anclajesLibres = anclaje.isOcupado() ? anclajesLibres : anclajesLibres++;
+            anclajesLibres += anclaje.isOcupado() ? 0 : 1;
         }
         return anclajesLibres;
     }
@@ -58,11 +58,11 @@ public class Estacion {
     }
 
     private void mostrarBicicleta(Movil bicicleta, int posicion) {
-        System.out.println("Se ha retirado la bicicleta %i en la posicion %i".formatted(bicicleta, posicion));
+        System.out.println("Se ha retirado la bicicleta %d en la posicion %d".formatted(bicicleta, posicion));
     }
 
     private void mostrarAnclaje(Movil bicicleta, int posicion) {
-        System.out.println("ID bicicleta: %I; Anclaje: %I".formatted(bicicleta.getId(), ++posicion));
+        System.out.println("ID bicicleta: %d; Anclaje: %d".formatted(bicicleta.getId(), ++posicion));
     }
 
     public boolean leerTarjetaUsuario(Autenticacion tarjeta) {
@@ -83,7 +83,7 @@ public class Estacion {
         int posicion = 0;
         for (Anclaje anclaje : this.anclajes.anclajes()) {
             ++posicion;
-            System.out.println("Bicicleta: %i -- %b; Anclaje: %i".formatted(anclaje.getBici(), anclaje.isOcupado(), posicion));
+            System.out.println("Bicicleta: %d -- %b; Anclaje: %d".formatted(anclaje.getBici(), anclaje.isOcupado(), posicion));
         }
     }
 }
