@@ -1,4 +1,4 @@
-package edu.teamrocket.bicipalma;
+package edu.teamrocket.bicipalma.estacion;
 
 import edu.teamrocket.bicipalma.domain.estacion.Anclajes;
 import edu.teamrocket.bicipalma.domain.vehiculo.*;
@@ -6,6 +6,7 @@ import edu.teamrocket.bicipalma.domain.vehiculo.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 public class AnclajesTest {
 

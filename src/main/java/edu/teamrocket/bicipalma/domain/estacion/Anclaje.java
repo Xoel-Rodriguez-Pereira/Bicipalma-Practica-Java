@@ -23,6 +23,7 @@ class Anclaje {
 
     void liberarBici() {
         this.ocupado = false;
+        this.bici = null;
     }
 
     public String toString() {

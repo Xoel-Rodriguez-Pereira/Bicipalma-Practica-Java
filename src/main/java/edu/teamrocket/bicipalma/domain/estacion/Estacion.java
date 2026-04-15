@@ -16,24 +16,24 @@ public class Estacion {
         this.anclajes = new Anclajes(numAnclajes);
     }
 
-    private int getId() {
+    public int getId() {
         return this.id;
     }
 
-    private String getDireccion() {
+    public String getDireccion() {
         return this.direccion;
     }
 
     @Override
     public String toString() {
-        return "ID estacion: %S; Direccion: %S; Anclajes %d".formatted(this.id, this.direccion, this.anclajes.numAnclajes());
+        return "ID estacion: %S; Direccion: %S; Anclajes %d".formatted(this.id, this.direccion, this.numAnclajes());
     }
 
     private Anclaje[] anclajes() {
         return this.anclajes.anclajes();
     }
 
-    private int numAnclajes() {
+    public int numAnclajes() {
         return this.anclajes.numAnclajes();
     }
     
@@ -43,7 +43,7 @@ public class Estacion {
 
     public int anclajesLibres() {
         int anclajesLibres = 0;
-        for (Anclaje anclaje : this.anclajes.anclajes()) {
+        for (Anclaje anclaje : this.anclajes()) {
             anclajesLibres += anclaje.isOcupado() ? 0 : 1;
         }
         return anclajesLibres;
@@ -51,14 +51,15 @@ public class Estacion {
 
     public void anclarBicicleta(Movil bicicleta) {
         int posicion = 0; 
-        while (this.anclajes.anclajes()[posicion].isOcupado()) { //this.anclajes.anclajes() devuelve un array de Anclaje
+        while (this.anclajes()[posicion].isOcupado()) { //this.anclajes() devuelve un array de Anclaje
             posicion++;
         }
+        this.anclajes()[posicion].anclarBici(bicicleta);
         mostrarAnclaje(bicicleta, posicion);
     }
 
     private void mostrarBicicleta(Movil bicicleta, int posicion) {
-        System.out.println("Se ha retirado la bicicleta %d en la posicion %d".formatted(bicicleta, posicion));
+        System.out.println("Se ha retirado la bicicleta %d en el anclaje %d".formatted(bicicleta, ++posicion));
     }
 
     private void mostrarAnclaje(Movil bicicleta, int posicion) {
@@ -72,7 +73,7 @@ public class Estacion {
     public void retirarBicicleta(Autenticacion tarjeta) {
         if (tarjeta.isActivada()) {
             int posicionBici = this.anclajes.seleccionarAnclaje();
-            this.anclajes.anclajes()[posicionBici].liberarBici();
+            this.anclajes()[posicionBici].liberarBici();
             mostrarBicicleta(this.anclajes.getBiciAt(posicionBici), posicionBici);
         } else {
             System.out.println("No hay bicicletas disponibles");
@@ -81,9 +82,12 @@ public class Estacion {
 
     public void consultarAnclajes() {
         int posicion = 0;
-        for (Anclaje anclaje : this.anclajes.anclajes()) {
+        for (Anclaje anclaje : this.anclajes()) {
             ++posicion;
-            System.out.println("Bicicleta: %d -- %b; Anclaje: %d".formatted(anclaje.getBici(), anclaje.isOcupado(), posicion));
+            Optional<Movil> bici =  Optional.ofNullable(anclaje.getBici());
+            int idBici = bici.isPresent() ? bici.get().getId() : 0;
+            String ocupado = anclaje.isOcupado() ? "OCUPADO" : "LIBRE";
+            System.out.println("Bicicleta: %d -- ".formatted(idBici) + ocupado + "; Anclaje: %d".formatted(posicion));
         }
     }
 }

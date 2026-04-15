@@ -1,4 +1,4 @@
-package edu.teamrocket.bicipalma;
+package edu.teamrocket.bicipalma.vehiculo;
 
 import edu.teamrocket.bicipalma.domain.vehiculo.*;
 

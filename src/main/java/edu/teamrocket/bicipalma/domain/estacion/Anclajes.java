@@ -6,7 +6,7 @@ public class Anclajes {
 
     private final Anclaje[] anclajes;
 
-    Anclajes(int numAnclajes) {
+    public Anclajes(int numAnclajes) {
         anclajes = new Anclaje[numAnclajes];
         crearAnclajes();
     }
@@ -18,33 +18,33 @@ public class Anclajes {
         }
     }
 
-    Anclaje[] anclajes() {
+    public Anclaje[] anclajes() {
         return this.anclajes;
     }
 
-    int numAnclajes() {
+    public int numAnclajes() {
         return this.anclajes.length;
     }
 
-    void ocuparAnclaje(int posicion, Movil bici) {
+    public void ocuparAnclaje(int posicion, Movil bici) {
         this.anclajes[posicion].anclarBici(bici);
     }
 
-    boolean isAnclajeOcupado(int posicion) {
+    public boolean isAnclajeOcupado(int posicion) {
         return this.anclajes[posicion].isOcupado();
     }
 
-    void liberarAnclaje(int posicion) {
+    public void liberarAnclaje(int posicion) {
         this.anclajes[posicion].liberarBici();
     }
 
-    Movil getBiciAt(int posicion) {
+    public Movil getBiciAt(int posicion) {
         return this.anclajes[posicion].getBici();
     }
 
-    int seleccionarAnclaje() {
+    public int seleccionarAnclaje() {
         int posicion = 0;
-        while (!anclajes[posicion].isOcupado()) {
+        while (anclajes[posicion].isOcupado()) {
             posicion++;
         }
         return posicion;
