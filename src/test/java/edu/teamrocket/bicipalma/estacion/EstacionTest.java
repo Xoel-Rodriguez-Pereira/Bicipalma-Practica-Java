@@ -1,11 +1,9 @@
 package edu.teamrocket.bicipalma.estacion;
 
 import edu.teamrocket.bicipalma.domain.estacion.Estacion;
-import edu.teamrocket.bicipalma.domain.usuario.TarjetaUsuario;
 import edu.teamrocket.bicipalma.domain.vehiculo.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class EstacionTest {
